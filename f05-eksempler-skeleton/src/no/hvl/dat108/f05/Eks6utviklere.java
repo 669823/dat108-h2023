@@ -11,10 +11,10 @@ public class Eks6utviklere {
 		List<Utvikler> utviklere = Arrays.asList(
 				new Utvikler("Arne", Set.of("Java", "C")),
 				new Utvikler("Pere", Set.of("Javascript", "C++")),
-				new Utvikler("Knut", Set.of("Java")),
+				new Utvikler("Knut", Set.of("Java", "C#")),
 				new Utvikler("Anne", Set.of("Haskell", "C#", "Python")),
 				new Utvikler("Emma", Set.of("Clojure", "Ruby", "C")),
-				new Utvikler("Lise", Set.of("Java", "C")));
+				new Utvikler("Lise", Set.of("Java", "C#")));
 
 		System.out.println(
 				"\nEn oversikt over hvilke utviklere som kan Java:");
@@ -28,17 +28,18 @@ public class Eks6utviklere {
 		String navnCSharp = utviklere.stream()
 				.filter(u -> u.getSpraak().contains("C#"))
 				.map(u -> u.getNavn())
-				.findAny().orElse("INGEN");
+				.findAny()
+				.orElse("INGEN");	
 		System.out.println(navnCSharp);
 
 		System.out.println(
 				"\nEn sortert liste over alle programmeringsspråkene utviklerne kan:");
 		List<String> spraak = utviklere.stream()
-				.flatMap(u -> u.getSpraak().stream())
-				.distinct()
-				.sorted()
-				.toList();
-				
+		.map(u->u.getSpraak())
+		.flatMap(s->s.stream())
+		.distinct()
+		.sorted()
+		.toList();
 		System.out.println(spraak);
 
 		System.out.println(

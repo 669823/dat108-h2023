@@ -54,6 +54,7 @@ public class Eks3Optional1 {
 		 */
 		
 		Optional<Integer> a = finnMinsteOver10Opt(enToTre);
+<<<<<<< Updated upstream
 		a.ifPresentOrElse(
 				x -> printFunnet(enToTre, x),
 				() -> printIkkeFunnet(enToTre));
@@ -62,12 +63,21 @@ public class Eks3Optional1 {
 		b.ifPresentOrElse(
 				x -> printFunnet(tiElleveTolv, x), 
 				() -> printIkkeFunnet(tiElleveTolv));
+=======
+		a.ifPresentOrElse(x -> printFunnet(enToTre, x),
+			() -> printIkkeFunnet(enToTre));
+//		
+		Optional<Integer> b = finnMinsteOver10Opt(tiElleveTolv);
+		b.ifPresentOrElse(x -> printFunnet(tiElleveTolv, x),
+		 () -> printIkkeFunnet(tiElleveTolv));
+>>>>>>> Stashed changes
 
 		//Andre muligheter med Optional.
 		
 		System.out.println("\nifPresent(...)");
 		a.ifPresent(System.out::println);
 		b.ifPresent(System.out::println);
+<<<<<<< Updated upstream
 		
 		System.out.println("\norElse(0)");
 		System.out.println(a.orElse(-1));
@@ -79,6 +89,19 @@ public class Eks3Optional1 {
 		
 		System.out.println("\nget()");
 //		System.out.println(a.get()); //Vil kaste en  java.util.NoSuchElementException siden empty
+=======
+//		
+		System.out.println("\norElse(0)");
+		System.out.println(a.orElse(-1));
+		System.out.println(b.orElse(-1));
+//
+		System.out.println("\norElseThrow(...)");
+////		System.out.println(a.orElseThrow(() -> new RuntimeException()));
+		System.out.println(b.orElseThrow(() -> new RuntimeException()));
+//		
+		System.out.println("\nget()");
+////		System.out.println(a.get()); //Vil kaste en  java.util.NoSuchElementException siden empty
+>>>>>>> Stashed changes
 		System.out.println(b.get());
 	}
 	

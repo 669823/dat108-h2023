@@ -26,24 +26,12 @@ public class Eksempel7 {
 		System.out.println("\n");
 		System.out.println("Sorterte strenger uten duplikater");
 		//TODO
-		String s = Stream.of("Per", "Knut", "Anne", "Per")
-			.distinct()
-			.sorted()
-			.collect(Collectors.joining(" "));
-		System.out.println(s);
 		
 		//For en stream av strenger, samle dem sortert på stringlengde, 
 		//uten duplikater i en ny liste. Skriv deretter ut listen.
 		System.out.println();
 		System.out.println("Sorterte strenger uten duplikater");
 		//TODO
-		List<String> ls =Stream.of("Per", "Knuto", "Anne", "Per")
-				.distinct()
-				.sorted((s1,s2) -> s1.length() - s2.length())
-				.toList();
-		System.out.println(ls);
-
-		
 	}
 }
 

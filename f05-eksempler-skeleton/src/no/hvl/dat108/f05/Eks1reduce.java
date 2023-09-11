@@ -9,6 +9,7 @@ public class Eks1reduce {
 		/* Summen av aldre av personer i people-listen */
 		
 		// Summen av aldre med vanlig +
+<<<<<<< Updated upstream
 //		int sumAlder = people.stream()
 //				.map(p -> p.getAge())
 //				.reduce(0, (sum, alder) -> sum + alder);
@@ -27,16 +28,39 @@ public class Eks1reduce {
 		int sumAlder = people.stream()
 				.mapToInt(p -> p.getAge())
 				.sum();
+=======
+		int sumAlder = people.stream()
+		.map(p -> p.getAge())
+		.reduce(0, (a,b) ->Integer.sum(a, b)); // eller .reduce(0,Integer::sum)
+		System.out.println(sumAlder);
+		// Alternativt med Integer.sum
+		
+		
+		// Med metodereferanse
+		int sumAlder2 = people.stream()
+		.map(p -> p.getAge())
+		.reduce(0, Integer::sum);
+		System.out.println(sumAlder2);
+		
+		// Alternativt med IntStream (Stream av int-er)
+		int sumAlder3 = people.stream()
+		.mapToInt(p -> p.getAge())
+		.sum();
+		System.out.println(sumAlder3);
+>>>>>>> Stashed changes
 		
 		System.out.println(sumAlder);
 		
 		
 		/* En streng med alle initialene, "CD LC TC CB MA" */
 
-		// Samle opp med reduce og +
-		String initialer = people.stream()
-				.map(p -> "" + p.getFirstName().charAt(0))
-				.reduce("", (res, fi) -> res + " " + fi).trim();
+		// gather using refuce and +
+		String initialier = people.stream()
+		.map(p -> p.getFirstName().substring(0, 1))
+		.reduce("", (a,b) -> a + b + " ");
+		System.out.println(initialier);
+
+		
 
 
 		// Alternativt med collect og Collectors.joining
